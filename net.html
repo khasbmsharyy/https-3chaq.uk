@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>قوانين شات ســوا فــلــــســطــيــن للجوال</title>
+
+<meta name="google" content="notranslate">
+<meta name="HandheldFriendly" content="True">
+
+<meta property="og:description" content="شات ســوا فــلــــســطــيــن للجوال">
+<meta property="og:image" content="https://up6.cc/2026/03/177446588767121.jpg">
+
+<link rel="icon" href="https://up6.cc/2026/03/177446588767121.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#0a0a0a;
+--card: rgba(255, 255, 255, 0.05); /* شفافية خفيفة مثل الصورة */
+--gold:#ffd700;
+--text:#f5f5f5;
+--shadow:0 4px 14px rgba(255,215,0,.15);
+}
+
+body.light{
+--bg:#ffffff;
+--card: rgba(0, 0, 0, 0.05);
+--gold:#d4af37;
+--text:#222;
+--shadow:0 4px 12px rgba(0,0,0,.12);
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Tajawal',sans-serif;
+line-height:1.8;
+padding:18px;
+transition:.4s;
+}
+
+/* Logo */
+.logo{
+width:300px;
+max-width:100%;
+height:auto;
+border-radius:12px;
+border:3px solid var(--gold);
+display:block;
+margin:0 auto 20px;
+animation:float 6s ease-in-out infinite, glowLogo 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+}
+
+@keyframes glowLogo{
+0%{box-shadow:0 0 6px var(--gold)}
+50%{box-shadow:0 0 20px var(--gold)}
+100%{box-shadow:0 0 6px var(--gold)}
+}
+
+/* Title */
+h1{
+text-align:center;
+color:var(--gold);
+margin-bottom:20px;
+font-size:28px;
+}
+
+/* Navigation Icons */
+.nav-icons{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+margin:20px 0 30px;
+}
+
+.nav-icons a{
+background: rgba(255,255,255,0.05);
+padding:10px 20px;
+border-radius:999px;
+color:var(--gold);
+font-weight:700;
+text-decoration:none;
+display:flex;
+align-items:center;
+gap:6px;
+border: 1px solid var(--gold);
+transition:.3s;
+}
+
+.nav-icons a:hover{
+transform:translateY(-4px);
+background: var(--gold);
+color: #000;
+}
+
+/* Rules Section - MODIFIED FOR DIRECTION */
+.rules-container {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.rules-container h2 {
+    color: var(--gold);
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rule-item {
+    background: var(--card);
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* الترتيب يبدأ من اليمين */
+    gap: 15px; /* المسافة بين الرقم والنص */
+    transition: 0.3s;
+    border: 1px solid rgba(255, 215, 0, 0.05);
+}
+
+.rule-number {
+    background: var(--gold);
+    color: #000;
+    width: 38px;
+    height: 38px;
+    min-width: 38px; /* ضمان بقاء الدائرة بنفس الحجم */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    order: -1; /* تجبر الرقم على الظهور في البداية (اليمين) */
+}
+
+.rule-text {
+    flex: 1;
+    text-align: right; /* محاذاة النص لليمين */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.rule-item:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateX(5px); /* حركة خفيفة لليمين عند التأشير */
+}
+
+/* Footer */
+footer{
+text-align:center;
+margin-top:30px;
+font-size:14px;
+color:var(--gold);
+}
+
+/* Fixed Buttons */
+.theme-btn,.music-btn{
+position:fixed;
+width:46px;
+height:46px;
+border:none;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+z-index:1000;
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.theme-btn{
+top:18px;
+right:18px;
+background:var(--gold);
+color:#000;
+}
+
+.music-btn{
+bottom:18px;
+left:18px;
+background:var(--gold);
+color:#000;
+}
+
+</style>
+</head>
+
+<body class="dark"> <button class="theme-btn" id="themeToggle">
+<i class="fas fa-moon"></i>
+</button>
+
+<audio id="bgMusic" autoplay loop muted preload="auto"
+src="https://image2url.com/r2/default/audio/1773928240124-4f179488-fb11-42b8-b227-014e103e91ef.mp3">
+</audio>
+
+<button class="music-btn" id="musicToggle">
+<i class="fas fa-music"></i>
+</button>
+
+<img src="https://up6.cc/2026/03/177446588767121.jpg" class="logo" alt="ســوا فــلــــســطــيــن">
+
+<h1>قوانين شات ســوا فــلــــســطــيــن للجوال</h1>
+
+<div style="text-align:center;margin-bottom:25px;">
+<a href="https://aqfeet.com/" style="color:var(--gold);font-weight:700;text-decoration:none;">
+<i class="fas fa-arrow-left"></i>
+العودة إلى شات ســوا فــلــــســطــيــن 
+</a>
+</div>
+
+<nav class="nav-icons">
+<a href="net.html"><i class="fas fa-gavel"></i> القوانين</a>
+<a href="sh.html"><i class="fas fa-images"></i> صور رمزيات</a>
+<a href="ed.html"><i class="fas fa-keyboard"></i> الاختصارات</a>
+<a href="z.html"><i class="fas fa-user-shield"></i> الادارة</a>
+</nav>
+
+<section class="rules-container">
+
+    <h2><i class="fas fa-shield-alt"></i> قوانين الشات</h2>
+
+    <ul class="rules-list">
+
+        <li class="rule-item">
+            <div class="rule-number">1</div> <div class="rule-text">يُمنع السب والشتم بجميع أشكاله وصوره داخل الشات</div>
+        </li>
+
+        <li class="rule-item">
+            <div class="rule-number">2</div>
+            <div class="rule-text">احترام الإدارة والمشرفين وجميع الأعضاء دون استثناء</div>
+        </li>
+
+        <li class="rule-item">
+            <div class="rule-number">3</div>
+            <div class="rule-text">يُمنع نشر الروابط والإعلانات بدون إذن مسبق من الإدارة</div>
+        </li>
+
+        <li class="rule-item">
+            <div class="rule-number">4</div>
+            <div class="rule-text">يُمنع طلب الصور أو المعلومات الشخصية للأعضاء</div>
+        </li>
+
+        <li class="rule-item">
+            <div class="rule-number">5</div>
+            <div class="rule-text">الالتزام بآداب الحوار والحديث المحترم</div>
+        </li>
+
+        <li class="rule-item">
+            <div class="rule-number">6</div>
+            <div class="rule-text">يُمنع الإزعاج أو محاولة تخريب الدردشة بأي وسيلة</div>
+        </li>
+
+    </ul>
+
+</section>
+
+<footer>
+© جميع الحقوق محفوظة شات ســوا فــلــــســطــيــن للجوال 2025–2028
+</footer>
+
+<script>
+/* theme toggle script */
+const currentTheme = localStorage.getItem("theme") || "dark";
+
+if (currentTheme === "light") {
+    document.body.classList.add("light");
+    icon.classList.replace("fa-moon", "fa-sun");
+} else {
+    document.body.classList.remove("light");
+    icon.classList.replace("fa-sun", "fa-moon");
+}
+
+// 2. منطق التبديل عند الضغط
+themeBtn.onclick = () => {
+    document.body.classList.toggle("light");
+    
+    let theme = "dark";
+    if (document.body.classList.contains("light")) {
+        theme = "light";
+        icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+        theme = "dark";
+        icon.classList.replace("fa-sun", "fa-moon");
+    }
+    
+    // حفظ الخيار لكي لا يتغير عند تحديث الصفحة
+    localStorage.setItem("theme", theme);
+};
+
+/* music script */
+const musicBtn = document.getElementById("musicToggle");
+const audio = document.getElementById("bgMusic");
+
+musicBtn.onclick = () => {
+    if (audio.paused) {
+        audio.muted = false;
+        audio.play();
+    } else {
+        audio.pause();
+    }
+};
+</script>
+
+</body>
+</html>
