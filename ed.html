@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختصارات شات ســوا فــلــــســطــيــن </title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --gold: #ffcc00;
+            --text: #ffffff;
+            --input-bg: #262626;
+        }
+        /* تنسيق الوضع النهاري */
+        body.light {
+            --bg: #f0f0f0;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --input-bg: #e0e0e0;
+        }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Tajawal', sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
+        .logo { width: 250px; border-radius: 15px; border: 2px solid var(--gold); margin-bottom: 15px; }
+        h1 { color: var(--gold); font-size: 20px; text-align: center; margin-bottom: 10px; }
+        .back-link { color: var(--gold); text-decoration: none; font-weight: bold; margin-bottom: 25px; display: block; }
+        .nav-icons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; max-width: 400px; }
+        .nav-icons a { background: transparent; border: 1px solid var(--gold); padding: 8px 15px; border-radius: 25px; color: var(--gold); text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 5px; }
+        .main-box { width: 100%; max-width: 450px; background: var(--card-bg); border-radius: 35px; padding: 25px 15px; border: 1px solid #333; }
+        .header-info { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+        .count-badge { background: var(--gold); color: #000; padding: 2px 12px; border-radius: 15px; font-weight: bold; }
+        .search-container { position: relative; margin-bottom: 20px; }
+        .search-container input { width: 100%; padding: 12px 15px; border-radius: 18px; border: 1px solid #444; background: var(--input-bg); color: var(--text); text-align: center; outline: none; }
+        .search-container i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--gold); }
+        .shortcut-card { background: rgba(128, 128, 128, 0.1); border: 1px solid #333; border-radius: 20px; padding: 10px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .copy-btn { background: var(--gold); color: #000; width: 45px; height: 45px; border-radius: 12px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .shortcut-text { flex-grow: 1; font-size: 14px; text-align: center; line-height: 1.4; }
+        .shortcut-label { background: transparent; border: 1px solid var(--gold); color: var(--gold); width: 55px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+        .word-img { width: 22px; vertical-align: middle; }
+        .float-btn { position: fixed; width: 50px; height: 50px; background: var(--gold); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 100; cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .theme-toggle { top: 20px; right: 20px; }
+        .music-toggle { bottom: 20px; right: 20px; }
+    </style>
+</head>
+<body>
+
+    <button id="themeBtn" class="float-btn theme-toggle"><i id="themeIcon" class="fas fa-moon"></i></button>
+    <button id="musicBtn" class="float-btn music-toggle"><i id="musicIcon" class="fas fa-play"></i></button>
+
+    <audio id="myAudio" loop>
+        <source src="https://image2url.com/r2/default/audio/1774545771488-b67b3cca-6239-4a76-a35f-0fd918a33f71.mp3" type="audio/mpeg">
+    </audio>
+
+    <img src="https://up6.cc/2026/03/177446588767121.jpg" class="logo">
+    <h1>اختصارات شات ســوا فــلــــســطــيــن للجوال</h1>
+    <a href="https://aqfeet.com/" class="back-link">← العودة إلى شات ســوا فــلــــســطــيــن </a>
+
+    <nav class="nav-icons">
+        <a href="net.html"><i class="fas fa-gavel"></i> القوانين</a>
+        <a href="sh.html"><i class="fas fa-image"></i> الرمزيات</a>
+        <a href="ed.html"><i class="fas fa-user-shield"></i> الادارة</a>
+        <a href="z.html"><i class="fas fa-keyboard"></i> الاختصارات</a>
+    </nav>
+
+    <div class="main-box">
+        <div class="header-info">
+            <span class="count-badge" id="count">9</span>
+            <div style="color:var(--gold); font-weight:bold;"><i class="fas fa-keyboard"></i> اختصارات الشات</div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="ابحث عن اختصار...">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div id="shortcutsList">
+            <div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('السلام عليكم ورحمة الله وبركاته')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">السلام عليكم ورحمة الله وبركاته</div>
+                <div class="shortcut-label">س1</div>
+            </div>
+            <div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('وعليگم السلام ورحمه الله وبرکاته')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">>وعليگم السلام ورحمه الله وبرکاته</div>
+                <div class="shortcut-label">س2</div>
+            </div>
+            <div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('سبحان الله والحمد لله ولا إله إلا الله والله أكبر ..')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">سبحان الله والحمد لله ولا إله إلا الله والله أكبر ..</div>
+                <div class="shortcut-label">س3</div>
+            </div>
+      <div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('اسـتغفـر الله واتـوب الـيه ..')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">اسـتغفـر الله واتـوب الـيه ..</div>
+                <div class="shortcut-label">س4</div>
+            </div>
+ <div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('صبَاح الخَيــر ..')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">صبَاح الخَيــر ..</div>
+                <div class="shortcut-label">ص1</div>
+            </div>                 
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('صبَاح النور ..')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">صبَاح النور ..</div>
+                <div class="shortcut-label">ص2</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('آللّهُمَ.صَلِ.🍂ۈسَلّمْ ؏ـلۓِ.سَيّدنَآ.مُحَمّدْ🍃 وَ؏ـَلَىْ آلِهِ 🌴وَصَحْبِهِ أَجْمَـ؏ـِيْن')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">آللّهُمَ.صَلِ.🍂ۈسَلّمْ ؏ـلۓِ.سَيّدنَآ.مُحَمّدْ🍃 وَ؏ـَلَىْ آلِهِ 🌴وَصَحْبِهِ أَجْمَـ؏ـِيْن</div>
+                <div class="shortcut-label">ص3</div>
+            </div>            
+ <div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('الَّلهُمَّ صلِّ وَسَلِم وَبَـارِك عَلَى سَّيدْنـا مُحَمّـدْ وَعَلَى الِهِ وَصَحبِهِ أَجمَعِيْن ..♥~ 🌹')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">الَّلهُمَّ صلِّ وَسَلِم وَبَـارِك عَلَى سَّيدْنـا مُحَمّـدْ وَعَلَى الِهِ وَصَحبِهِ أَجمَعِيْن ..♥~ 🌹</div>
+                <div class="shortcut-label">ص4</div>
+            </div>           
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('🌺عَلَيْهِ أَفْضَلُ الصَّلَاةِ وَالسَّلَامْ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">🌺عَلَيْهِ أَفْضَلُ الصَّلَاةِ وَالسَّلَامْ</div>
+                <div class="shortcut-label">ص5</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('اللهمَّﷺصَلِّﷺوَسَـــلِّمْﷺوَبَارِكﷺْعلىﷺنَبِيِّنَـــاﷺمُحمَّدﷺ')"><i class="fas fa-copy"></i></button>
+    <div class="shortcut-text">اللهمَّﷺصَلِّﷺوَسَـــلِّمْ وَبَارِك<br>ﷺْعلىﷺنَبِيِّنَـــاﷺمُحمَّدﷺ</div>
+                <div class="shortcut-label">ص6</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('مسَاء الخَيــر .. ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">مسَاء الخَيــر .. </div>
+                <div class="shortcut-label">م1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('مسَاء النُّــور ..')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">مسَاء النُّــور ..</div>
+                <div class="shortcut-label">م2</div>
+            </div>   
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('𝚆𝙴𝙻𝙲𝙾𝙼𝙴 | ولــكم..')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">𝚆𝙴𝙻𝙲𝙾𝙼𝙴 | ولــكم..<img class="word-img" src="https://3chaq.uk/emo/1764833261974.gif"></div>
+                <div class="shortcut-label">و1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">ولـــڪم : 𝒘𝒆𝒍𝒄𝒐𝒎𝒆… ♫♪</div>
+                <div class="shortcut-label">و2</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('يسـلمووؤ ، كلك ذووق')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">يسـلمووؤ ، كلك ذووق</div>
+                <div class="shortcut-label">ي1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('يســلمك ربي ، ويسعدك')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/8.png">يســلمك ربي ، ويسعدك</div>
+                <div class="shortcut-label">ي2</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('نَــــــوورت ..')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif">نَــــــوورت ..</div>
+                <div class="shortcut-label">نورت</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy(' .. نـوركـ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/20.gif"> .. نـوركـ</div>
+                <div class="shortcut-label">نورك</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('🌺 كيـف حـالكم ، عسسـإكم بخيـرر')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">🌺 كيـف حـالكم ، عسسـإكم بخيـرر</div>
+                <div class="shortcut-label">ك1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('هُـدِؤؤؤؤِوؤؤؤِؤؤوؤ . . ✿" منِ فضـلـِكم " ✿. . وؤِؤؤؤِوؤؤؤؤِوؤؤؤِءءء -:')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">هُـدِؤؤؤؤِوؤؤؤِؤؤوؤ . . ✿" منِ فضـلـِكم " ✿. . وؤِؤؤؤِوؤؤؤؤِوؤؤؤِءءء -:</div>
+                <div class="shortcut-label">ق1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('سؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤاال123...')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">سؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤاال123...</div>
+                <div class="shortcut-label">ق2</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('.. 1112223333333333 #')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">.. 1112223333333333 #</div>
+                <div class="shortcut-label">ق3</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('🌺🤍 جـمــعـةة مـبـ⸙آركـة عـلـيـنـآ وعـلـيـكـمـ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">🌺🤍 جـمــعـةة مـبـ⸙آركـة عـلـيـنـآ وعـلـيـكـمـ</div>
+                <div class="shortcut-label">ج1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('عـلـيـنـآ وعـلـيـكـ يـآربـ⸙ 🤍🌹')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">عـلـيـنـآ وعـلـيـكـ يـآربـ⸙ 🤍🌹</div>
+                <div class="shortcut-label">ج2</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('تـصـبـ⸙حـ⸙ونـ عـلـى خـ⸙يــر آحـ⸙لـآمـ سـعـيــدآ 🌺')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">تـصـبـ⸙حـ⸙ونـ عـلـى خـ⸙يــر آحـ⸙لـآمـ سـعـيــدآ 🌺</div>
+                <div class="shortcut-label">ت1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('🌺🤍تـلـآقـ⸙يـ خـ⸙يـرر نـومـ آلـهـنـآ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">🌺🤍تـلـآقـ⸙يـ خـ⸙يـرر نـومـ آلـهـنـآ</div>
+                <div class="shortcut-label">ت2</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('🌺االله معاك يالــغـــالي نشوفك على خــــيـــر🌺')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">🌺االله معاك يالــغـــالي نشوفك على خــــيـــر🌺</div>
+                <div class="shortcut-label">ب1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"></div>
+                <div class="shortcut-label">تت</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('⚘ھًٰٓـۂھًٰٓـۂھًٰٓـ( آآآه يابطني)ھًٰٓـۂھًٰٓـۂ⚘')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif">⚘ھًٰٓـۂھًٰٓـۂھًٰٓـ( آآآه يابطني)ھًٰٓـۂھًٰٓـۂ⚘<img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"></div>
+                <div class="shortcut-label">ه1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('⚘هُِهُِهُِـٍ(آِبَِّتَِّعَِّدَِْ عَِّنَِّيَِْ سَِّوَِّفَِْ آِتَِّشَِّقَِّلَِّبَِْ)ـهُِهُِهُِ')"><i class="fas fa-copy"></i></button>
+                     <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif">⚘هُِهُِهُِـٍ(آِبَِّتَِّعَِّدَِْ عَِّنَِّيَِْ سَِّوَِّفَِْ آِتَِّشَِّقَِّلَِّبَِْ)ـهُِهُِهُِ⚘<img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"></div>
+                <div class="shortcut-label">ه2</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('⚘هذا المستخدم ف87 فااااطس من الضحــك')"><i class="fas fa-copy"></i></button>
+                             <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif">⚘هذا المستخدم <img class="word-img" src="https://3chaq.uk/emo/87.gif"> فااااطس من الضحــك<img class="word-img" src="https://3chaq.uk/emo/218.GIF"></div>
+                <div class="shortcut-label">ه3</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('ههههههههههههههههههههہَ هُ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif">هههههههههههه<br>ههههههههہَ هُ</div>
+                <div class="shortcut-label">ه4</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('ههههههههههههههههههههہَ هُ ')"><i class="fas fa-copy"></i></button>
+                     <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/218.GIF"> هههههههههههه<br>ههههههههہَ هُ ‹<img class="word-img" src="https://3chaq.uk/emo/218.GIF"></div>
+                <div class="shortcut-label">ه5</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('ههههههههههههههههههههههههههههههههه')"><i class="fas fa-copy"></i></button>
+                     <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/218.GIF">هههههههههههههههه<br>ههههههههههههههههه<img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"></div>
+                <div class="shortcut-label">هه</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"></div>
+                <div class="shortcut-label">ههه</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('هّـعٌ هّـعٌ هّـعٌ هّـعٌ هّـعٌ هّـعٌ هّـعٌ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif">هّـعٌ هّـعٌ هّـعٌ هّـعٌ هّـعٌ هّـعٌ هّـعٌ<img class="word-img" src="https://3chaq.uk/emo/1758005631604.gif"></div>
+                <div class="shortcut-label">هع</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('خخخخخخخخخخخ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1761503818996.gif">خخخخخخخخخخخ<img class="word-img" src="https://3chaq.uk/emo/1761503818996.gif"></div>
+                <div class="shortcut-label">خخ</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('')"><i class="fas fa-copy"></i></button>
+                             <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1761503818996.gif"><img class="word-img" src="https://3chaq.uk/emo/1761503818996.gif"><img class="word-img" src="https://3chaq.uk/emo/1761503818996.gif"><img class="word-img" src="https://3chaq.uk/emo/1761503818996.gif"><img class="word-img" src="https://3chaq.uk/emo/1761503818996.gif"></div>
+                <div class="shortcut-label">خ1</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1761505354924.gif"><img class="word-img" src="https://3chaq.uk/emo/1761505354924.gif"><img class="word-img" src="https://3chaq.uk/emo/1761505354924.gif"></div>
+                <div class="shortcut-label">ت3</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy(' مَمَمَمَمَمَـ تحت التفكير ـمَمَمَمَمَمَمَمَ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/31.gif"> مَمَمَمَمَمَـ تحت التفكير ـمَمَمَمَمَمَمَمَ <img class="word-img" src="https://3chaq.uk/emo/31.gif"></div>
+                <div class="shortcut-label">مم</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('*واذكروا الله كثيراً لعلكم تفلحون*')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1761504567417.gif">*واذكروا الله كثيراً لعلكم تفلحون*</div>
+                <div class="shortcut-label">ذذ</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('دِدِدِنِنِنِنِدِدِدِنِنِنِنِ يِّـأّأّأّ قِلَبِـــيِّ دِدِدِنِنِنِدِدِدِنِنِنِ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/1761505746925.gif">دِدِدِنِنِنِنِدِدِدِنِنِنِنِ يِّـأّأّأّ قِلَبِـــيِّ دِدِدِنِنِنِدِدِدِنِنِنِ<img class="word-img" src="https://3chaq.uk/emo/1761505746925.gif"></div>
+                <div class="shortcut-label">دد</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy(' وهہ‏‏ يـﮯ قلبيـﮯ وهہ‏‏')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/99.gif"> وهہ‏‏ يـﮯ قلبيـﮯ وهہ‏‏<img class="word-img" src="https://3chaq.uk/emo/119.GIF"></div>
+                <div class="shortcut-label">وه</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/123.gif"><img class="word-img" src="https://3chaq.uk/emo/123.gif"><img class="word-img" src="https://3chaq.uk/emo/123.gif"></div>
+                <div class="shortcut-label">محح</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy(' يِّؤ يِّؤ يِّؤ يِّؤ يِّؤ يِّؤ يّؤ ')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text"><img class="word-img" src="https://3chaq.uk/emo/103.gif"> يِّؤ يِّؤ يِّؤ يِّؤ يِّؤ يِّؤ يّؤ <img class="word-img" src="https://3chaq.uk/emo/103.gif"></div>
+                <div class="shortcut-label">يو</div>
+            </div>            
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('بـ⸙آآي')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">بـ⸙آآي<img class="word-img" src="https://3chaq.uk/emo/170.gif"></div>
+                <div class="shortcut-label">باي</div>
+            </div>                 
+<div class="shortcut-card">
+                <button class="copy-btn" onclick="copy('بـــــــــ .عن اذنكم شوي .ــــــــــــرب')"><i class="fas fa-copy"></i></button>
+                <div class="shortcut-text">بـــــــــ .عن اذنكم شوي .ــــــــــــرب</div>
+                <div class="shortcut-label">برب</div>
+            </div>                     
+        </div>
+    </div>
+
+    <script>
+        // --- إصلاح نظام الوضع الليلي ---
+        const themeBtn = document.getElementById("themeBtn");
+        const themeIcon = document.getElementById("themeIcon");
+        
+        themeBtn.onclick = () => {
+            document.body.classList.toggle("light");
+            if (document.body.classList.contains("light")) {
+                themeIcon.classList.replace("fa-moon", "fa-sun");
+                localStorage.setItem("theme", "light");
+            } else {
+                themeIcon.classList.replace("fa-sun", "fa-moon");
+                localStorage.setItem("theme", "dark");
+            }
+        };
+
+        // --- إصلاح نظام الصوت ---
+        const musicBtn = document.getElementById("musicBtn");
+        const musicIcon = document.getElementById("musicIcon");
+        const audio = document.getElementById("myAudio");
+
+        musicBtn.onclick = () => {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.classList.replace("fa-play", "fa-pause");
+            } else {
+                audio.pause();
+                musicIcon.classList.replace("fa-pause", "fa-play");
+            }
+        };
+
+        // --- إصلاح نظام النسخ ---
+        function copy(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("تم النسخ بنجاح: " + text);
+            });
+        }
+
+        // --- إصلاح نظام البحث ---
+        document.getElementById('searchInput').oninput = function() {
+            let val = this.value.toLowerCase();
+            let cards = document.querySelectorAll('.shortcut-card');
+            let count = 0;
+            
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(val)) {
+                    card.style.display = "flex";
+                    count++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+            document.getElementById('count').innerText = count;
+        };
+
+        // تطبيق الثيم المحفوظ عند التحميل
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light");
+            themeIcon.classList.replace("fa-moon", "fa-sun");
+        }
+    </script>
+</body>
+</html>
