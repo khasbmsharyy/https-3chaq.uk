@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إدارة شات ســوا فــلــــســطــيــن</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --bg-color: #0d0d0d;
+    --card-bg: #1a1a1a;
+    --gold: #ffcc00;
+    --gold-dark: #b8860b;
+    --text-color: #ffffff;
+    --gray-text: #a0a0a0;
+    --shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+}
+
+body.light {
+    --bg-color: #f5f5f5;
+    --card-bg: #ffffff;
+    --gold: #d4af37;
+    --text-color: #333333;
+    --gray-text: #666666;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Tajawal', sans-serif;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+/* الأزرار العائمة */
+.theme-btn, .music-btn, .scroll-btn {
+    position: fixed; width: 45px; height: 45px; border-radius: 50%;
+    border: none; background: var(--gold); color: #000;
+    cursor: pointer; z-index: 1000; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 10px var(--gold);
+}
+.theme-btn { top: 20px; right: 20px; }
+.music-btn { bottom: 85px; left: 20px; }
+.scroll-btn { bottom: 20px; right: 20px; }
+
+/* التصميم العلوي */
+.header-section { text-align: center; margin-bottom: 30px; }
+.logo { 
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid var(--gold);
+    display: block;
+    margin: 0 auto 15px;
+    box-shadow: var(--shadow);
+    animation: float 6s ease-in-out infinite, glowLogo 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes glowLogo {
+    0% { box-shadow: 0 0 6px var(--gold); }
+    50% { box-shadow: 0 0 20px var(--gold); }
+    100% { box-shadow: 0 0 6px var(--gold); }
+}
+
+h1 { font-size: 22px; color: var(--gold); margin-bottom: 10px; }
+.back-link { color: var(--gold); text-decoration: none; font-size: 14px; }
+
+/* أزرار التنقل */
+.nav-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 30px;
+}
+.nav-item {
+    background: var(--card-bg); color: var(--gold); padding: 12px;
+    border-radius: 25px; text-decoration: none; text-align: center;
+    font-weight: bold; font-size: 14px; border: 1px solid rgba(255,204,0,0.3);
+}
+
+/* بطاقات الأقسام */
+.section-card {
+    background: var(--card-bg); border-radius: 20px; margin-bottom: 15px;
+    overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card-header {
+    padding: 20px; display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer;
+}
+
+.card-title-group { display: flex; align-items: center; gap: 15px; }
+.card-icon {
+    width: 50px; height: 50px; border-radius: 50%; background: #333;
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+    color: var(--gold); box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card-info h2 { font-size: 18px; color: var(--gold); }
+.card-badge {
+    background: rgba(255,204,0,0.1); color: var(--gold);
+    padding: 2px 10px; border-radius: 10px; font-size: 11px; border: 1px solid var(--gold);
+}
+
+.arrow { transition: 0.3s; color: var(--gold); }
+.active .arrow { transform: rotate(90deg); }
+
+.card-content {
+    max-height: 0; overflow: hidden; transition: 0.4s ease-out;
+    background: rgba(0,0,0,0.2);
+}
+.section-card.active .card-content { max-height: 2000px; padding: 20px; }
+
+/* تصميم كروت الأشخاص */
+.user-item {
+    background: rgba(255,255,255,0.03); border-radius: 15px; padding: 15px;
+    text-align: center; margin-bottom: 10px; border: 1px solid rgba(255,204,0,0.1);
+}
+.user-avatar {
+    width: 60px; height: 60px; border-radius: 50%; background: var(--gold);
+    margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: #000; font-weight: bold;
+}
+.user-name { font-weight: bold; color: var(--text-color); margin-bottom: 5px; }
+.user-role { font-size: 12px; color: var(--gray-text); }
+
+footer { text-align: center; padding: 20px; font-size: 12px; color: var(--gray-text); }
+</style>
+</head>
+<body>
+
+<button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
+<button class="music-btn" id="musicToggle"><i class="fas fa-music"></i></button>
+<button class="scroll-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+
+<div class="header-section">
+    <img src="https://up6.cc/2026/03/177446588767121.jpg" class="logo" alt="شعار">
+    <h1>إدارة شات ســوا فــلــــســطــيــن</h1>
+    <a href="https://3chaq.uk/" class="back-link"><i class="fas fa-arrow-left"></i> العودة إلى شات ســوا فــلــــســطــيــن للجوال</a>
+</div>
+
+<nav class="nav-grid">
+    <a href="#" class="nav-item"><i class="fas fa-gavel"></i> القوانين</a>
+    <a href="#" class="nav-item"><i class="fas fa-images"></i> الرمزيات</a>
+    <a href="#" class="nav-item"><i class="fas fa-keyboard"></i> الاختصارات</a>
+    <a href="#" class="nav-item"><i class="fas fa-user-shield"></i> الإدارة</a>
+</nav>
+
+<div class="section-card active">
+    <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-title-group">
+            <div class="card-icon"><i class="fas fa-star"></i></div>
+            <div class="card-info">
+                <h2>مدير الموقع</h2>
+                <span class="card-badge"><i class="fas fa-crown"></i> المالك</span>
+            </div>
+        </div>
+        <i class="fas fa-chevron-left arrow"></i>
+    </div>
+    <div class="card-content">
+        <div class="user-item">
+            <div class="user-avatar">ر</div>
+            <div class="user-name">رامي</div>
+            <div class="user-role">صاحب الموقع</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-card">
+    <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-title-group">
+            <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="card-info">
+                <h2>الإداريون</h2>
+                <span class="card-badge">إدارة</span>
+            </div>
+        </div>
+        <i class="fas fa-chevron-left arrow"></i>
+    </div>
+    <div class="card-content">
+        <div class="user-item"><div class="user-avatar">ن</div><div class="user-name">نجمه الكون</div><div class="user-role">إدارية</div></div>
+        <div class="user-item"><div class="user-avatar">م</div><div class="user-name">ماسه</div><div class="user-role">إدارية</div></div>
+        <div class="user-item"><div class="user-avatar">ر</div><div class="user-name">رزان</div><div class="user-role">إدارية</div></div>
+    </div>
+</div>
+
+<div class="section-card">
+    <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-title-group">
+            <div class="card-icon"><i class="fas fa-fire"></i></div>
+            <div class="card-info">
+                <h2>الأعضاء المميزون</h2>
+                <span class="card-badge">VIP</span>
+            </div>
+        </div>
+        <i class="fas fa-chevron-left arrow"></i>
+    </div>
+    <div class="card-content">
+        <div class="user-item"><div class="user-avatar">ن</div><div class="user-name">نجمه الكون</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">م</div><div class="user-name">ماسه</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">ر</div><div class="user-name">رزان</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">س</div><div class="user-name">ساره</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">ص</div><div class="user-name">صقر</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">هـ</div><div class="user-name">هلاليه</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">ع</div><div class="user-name">عسل</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">و</div><div class="user-name">وسام</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">م</div><div class="user-name">محمد المصري</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">؟</div><div class="user-name">قريباً</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">؟</div><div class="user-name">قريباً</div><div class="user-role">العضو المميز</div></div>
+        <div class="user-item"><div class="user-avatar">؟</div><div class="user-name">قريباً</div><div class="user-role">العضو المميز</div></div>
+    </div>
+</div>
+
+<footer>
+    © جميع الحقوق محفوظة - شات سوريا توب للجوال - 2025-2028
+</footer>
+
+<audio id="bgMusic" loop src="https://image2url.com/r2/default/audio/1774545771488-b67b3cca-6239-4a76-a35f-0fd918a33f71.mp3"></audio>
+
+<script>
+function toggleCard(header) {
+    const card = header.parentElement;
+    card.classList.toggle('active');
+}
+
+const themeBtn = document.getElementById("themeToggle");
+themeBtn.onclick = () => {
+    document.body.classList.toggle("light");
+    const icon = themeBtn.querySelector("i");
+    icon.classList.toggle("fa-moon");
+    icon.classList.toggle("fa-sun");
+};
+
+const musicBtn = document.getElementById("musicToggle");
+const audio = document.getElementById("bgMusic");
+musicBtn.onclick = () => {
+    if (audio.paused) { audio.play(); } else { audio.pause(); }
+};
+</script>
+
+</body>
+</html>
