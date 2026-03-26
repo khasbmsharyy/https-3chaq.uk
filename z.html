@@ -133,6 +133,108 @@ h1 { font-size: 22px; color: var(--gold); margin-bottom: 10px; }
 .user-role { font-size: 12px; color: var(--gray-text); }
 
 footer { text-align: center; padding: 20px; font-size: 12px; color: var(--gray-text); }
+    /* --- زر فتح لوحة الألوان العائم --- */
+.color-panel-btn {
+    position: fixed; width: 48px; height: 48px; border-radius: 50%;
+    border: none; background: linear-gradient(135deg, #fff, #eee); color: #a41e54;
+    top: 75px; right: 20px; /* موقعه تحت زر الوضع الليلي */
+    cursor: pointer; z-index: 1000; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s all ease-in-out;
+    font-size: 18px;
+}
+.color-panel-btn:hover {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(164, 30, 84, 0.5);
+}
+
+/* --- تصميم لوحة التحكم الخرافية (Glassmorphism + Neon) --- */
+#cp-panel { 
+    position: fixed; top: 135px; right: 20px; width: 280px; 
+    /* تأثير الزجاج الضبابي */
+    background: rgba(255, 255, 255, 0.1); 
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    
+    border-radius: 20px; padding: 20px; 
+    z-index: 9999; display: none; direction: rtl; color: #fff; 
+    
+    /* حدود مضيئة تتغير مع اللون الذهبي */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
+                inset 0 0 15px rgba(255, 255, 255, 0.05);
+    
+    transition: 0.5s all ease-in-out;
+    opacity: 0; transform: translateY(-20px);
+}
+
+/* حركة ظهور اللوحة */
+#cp-panel.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* عنوان اللوحة العلوي */
+.cp-header {
+    font-size: 16px; font-weight: bold; text-align: center; margin-bottom: 20px;
+    color: var(--gold); /* يتغير مع اللون المختار */
+    text-shadow: 0 0 10px var(--gold);
+}
+
+/* الأقسام الداخلية للوحة */
+.cp-section { margin-bottom: 18px; }
+
+/* عناوين خيارات الألوان */
+.cp-title { 
+    font-size: 12px; margin-bottom: 8px; font-weight: bold; color: rgba(255,255,255,0.8); 
+    display: flex; align-items: center; gap: 8px;
+}
+.cp-title i { color: var(--gold); } /* أيقونات ملونة */
+
+/* حاوية مدخل الألوان والعرض */
+.cp-input-wrap { 
+    display: flex; align-items: center; gap: 12px; 
+    background: rgba(0,0,0,0.3); padding: 8px; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* المدخل المخفي لعرض اللون فقط */
+.cp-color-preview {
+    width: 40px; height: 40px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* زر اختيار اللون الحقيقي (مخفي فوق المربع) */
+.cp-input-wrap input[type="color"] { 
+    flex-grow: 1; height: 35px; cursor: pointer; border: none; background: none; 
+    -webkit-appearance: none;
+}
+.cp-input-wrap input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+.cp-input-wrap input[type="color"]::-webkit-color-swatch { border: none; border-radius: 8px; }
+
+/* --- زر تطبيق وحفظ التغييرات الخرافي --- */
+#cp-apply { 
+    width: 100%; padding: 12px; 
+    background: linear-gradient(45deg, #a41e54, #d4af37); /* لون متدرج افتراضي */
+    color: #fff; border: none; border-radius: 12px; cursor: pointer; 
+    font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+    transition: 0.3s all ease;
+    box-shadow: 0 4px 15px rgba(164, 30, 84, 0.3);
+    position: relative; overflow: hidden;
+}
+
+/* تأثير لمعان عند التحويم فوق الزر */
+#cp-apply:hover {
+    box-shadow: 0 6px 20px rgba(164, 30, 84, 0.5);
+    transform: translateY(-2px);
+}
+#cp-apply:active { transform: translateY(1px); }
+
+/* خط توضيحي أسفل اللوحة */
+.cp-footer-line {
+    text-align: center; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 15px;
+    }
+    
 </style>
 </head>
 <body>
@@ -140,7 +242,41 @@ footer { text-align: center; padding: 20px; font-size: 12px; color: var(--gray-t
 <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
 <button class="music-btn" id="musicToggle"><i class="fas fa-music"></i></button>
 <button class="scroll-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+<button class="color-panel-btn" id="colorPanelToggle" title="تغيير ألوان الموقع">
+    <i class="fas fa-magic"></i> </button>
 
+<div id="cp-panel">
+    <div class="cp-header">لوحة التحكم الفنية</div>
+    
+    <div class="cp-section">
+        <div class="cp-title"><i class="fas fa-paint-brush"></i> اللون الأساسي (الذهبي/الرموز)</div>
+        <div class="cp-input-wrap">
+            <div class="cp-color-preview" id="preview-gold" style="background: #ffcc00;"></div>
+            <input type="color" id="in-gold" value="#ffcc00">
+        </div>
+    </div>
+    
+    <div class="cp-section">
+        <div class="cp-title"><i class="fas fa-image"></i> لون خلفية الموقع الكلية</div>
+        <div class="cp-input-wrap">
+            <div class="cp-color-preview" id="preview-bg" style="background: #0d0d0d;"></div>
+            <input type="color" id="in-bg" value="#0d0d0d">
+        </div>
+    </div>
+    
+    <div class="cp-section">
+        <div class="cp-title"><i class="fas fa-rectangle-list"></i> لون خلفية الكروت</div>
+        <div class="cp-input-wrap">
+            <div class="cp-color-preview" id="preview-card" style="background: #1a1a1a;"></div>
+            <input type="color" id="in-card" value="#1a1a1a">
+        </div>
+    </div>
+    
+    <button id="cp-apply">تطبيق التأثيرات السحرية</button>
+    
+    <div class="cp-footer-line">تــصــمــيــم وبــرمــجــة : عــزوز</div>
+    </div>
+        
 <div class="header-section">
     <img src="https://up6.cc/2026/03/177446588767121.jpg" class="logo" alt="شعار">
     <h1>إدارة شات ســوا فــلــــســطــيــن</h1>
@@ -244,6 +380,79 @@ const audio = document.getElementById("bgMusic");
 musicBtn.onclick = () => {
     if (audio.paused) { audio.play(); } else { audio.pause(); }
 };
+    // تعريف العناصر
+const cpPanel = document.getElementById('cp-panel');
+const cpToggle = document.getElementById('colorPanelToggle');
+const btnApply = document.getElementById('cp-apply');
+
+// وظيفة إظهار وإخفاء اللوحة مع حركة (Animation)
+cpToggle.onclick = (e) => {
+    e.stopPropagation(); // منع إغلاق اللوحة عند الضغط على الزر نفسه
+    cpPanel.classList.toggle('show');
+};
+
+// إغلاق اللوحة عند الضغط في أي مكان خارجها
+document.addEventListener('click', (e) => {
+    if (cpPanel.classList.contains('show') && !cpPanel.contains(e.target) && e.target !== cpToggle) {
+        cpPanel.classList.remove('show');
+    }
+});
+
+// وظيفة تحديث المربعات الصغيرة (Previews) داخل اللوحة فوراً عند اختيار اللون
+function updatePreviews() {
+    document.getElementById('preview-gold').style.backgroundColor = document.getElementById('in-gold').value;
+    document.getElementById('preview-bg').style.backgroundColor = document.getElementById('in-bg').value;
+    document.getElementById('preview-card').style.backgroundColor = document.getElementById('in-card').value;
+}
+
+// إضافة مستمعي الأحداث لمدخلات الألوان لتحديث الـ Previews
+document.getElementById('in-gold').addEventListener('input', updatePreviews);
+document.getElementById('in-bg').addEventListener('input', updatePreviews);
+document.getElementById('in-card').addEventListener('input', updatePreviews);
+
+
+// وظيفة تطبيق الألوان وتغيير المتغيرات CSS وحفظها
+btnApply.onclick = function() {
+    const goldColor = document.getElementById('in-gold').value;
+    const bgColor = document.getElementById('in-bg').value;
+    const cardColor = document.getElementById('in-card').value;
+
+    // تحديث المتغيرات في الصفحة مباشرة (تغيير فوري)
+    document.documentElement.style.setProperty('--gold', goldColor);
+    document.documentElement.style.setProperty('--bg-color', bgColor);
+    document.documentElement.style.setProperty('--card-bg', cardColor);
+
+    // حفظ الاختيارات في ذاكرة المتصفح
+    localStorage.setItem('custom_gold', goldColor);
+    localStorage.setItem('custom_bg', bgColor);
+    localStorage.setItem('custom_card', cardColor);
+
+    // إغلاق اللوحة بعد التطبيق
+    cpPanel.classList.remove('show');
+};
+
+// عند تحميل الصفحة: استرجاع الألوان المحفوظة مسبقاً إن وجدت
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('custom_gold')) {
+        const g = localStorage.getItem('custom_gold');
+        const b = localStorage.getItem('custom_bg');
+        const c = localStorage.getItem('custom_card');
+        
+        // تحديث قيم المدخلات في اللوحة
+        document.getElementById('in-gold').value = g;
+        document.getElementById('in-bg').value = b;
+        document.getElementById('in-card').value = c;
+        
+        // تحديث الـ Previews
+        updatePreviews();
+        
+        // تطبيق الألوان على الصفحة
+        document.documentElement.style.setProperty('--gold', g);
+        document.documentElement.style.setProperty('--bg-color', b);
+        document.documentElement.style.setProperty('--card-bg', c);
+    }
+});
+    
 </script>
 
 </body>
