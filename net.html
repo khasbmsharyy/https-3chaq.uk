@@ -428,38 +428,36 @@ src="https://image2url.com/r2/default/audio/1774545771488-b67b3cca-6239-4a76-a35
 </footer>
 
 <script>
-/* theme toggle script */
-const currentTheme = localStorage.getItem("theme") || "dark";
-
-if (currentTheme === "light") {
-    document.body.classList.add("light");
-    icon.classList.replace("fa-moon", "fa-sun");
-} else {
-    document.body.classList.remove("light");
-    icon.classList.replace("fa-sun", "fa-moon");
-}
-
-// 2. منطق التبديل عند الضغط
-themeBtn.onclick = () => {
-    document.body.classList.toggle("light");
-    
-    let theme = "dark";
-    if (document.body.classList.contains("light")) {
-        theme = "light";
-        icon.classList.replace("fa-moon", "fa-sun");
-    } else {
-        theme = "dark";
-        icon.classList.replace("fa-sun", "fa-moon");
-    }
-    
-    // حفظ الخيار لكي لا يتغير عند تحديث الصفحة
-    localStorage.setItem("theme", theme);
-};
-
-/* music script */
+/* 1. تعريف العناصر الأساسية أولاً لتجنب الأخطاء */
+const themeBtn = document.getElementById("themeToggle");
+const themeIcon = themeBtn.querySelector("i");
+const cpPanel = document.getElementById('cp-panel');
+const cpToggle = document.getElementById('colorPanelToggle');
+const btnApply = document.getElementById('cp-apply');
 const musicBtn = document.getElementById("musicToggle");
 const audio = document.getElementById("bgMusic");
 
+/* 2. منطق الوضع الليلي / النهاري */
+const currentTheme = localStorage.getItem("theme") || "dark";
+if (currentTheme === "light") {
+    document.body.classList.add("light");
+    themeIcon.classList.replace("fa-moon", "fa-sun");
+}
+
+themeBtn.onclick = () => {
+    document.body.classList.toggle("light");
+    let theme = "dark";
+    if (document.body.classList.contains("light")) {
+        theme = "light";
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+    } else {
+        theme = "dark";
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+    }
+    localStorage.setItem("theme", theme);
+};
+
+/* 3. منطق الموسيقى */
 musicBtn.onclick = () => {
     if (audio.paused) {
         audio.muted = false;
@@ -468,79 +466,68 @@ musicBtn.onclick = () => {
         audio.pause();
     }
 };
-    // تعريف العناصر
-const cpPanel = document.getElementById('cp-panel');
-const cpToggle = document.getElementById('colorPanelToggle');
-const btnApply = document.getElementById('cp-apply');
 
-// وظيفة إظهار وإخفاء اللوحة مع حركة (Animation)
+/* 4. منطق لوحة الألوان */
+// وظيفة إظهار وإخفاء اللوحة
 cpToggle.onclick = (e) => {
-    e.stopPropagation(); // منع إغلاق اللوحة عند الضغط على الزر نفسه
+    e.stopPropagation();
     cpPanel.classList.toggle('show');
 };
 
-// إغلاق اللوحة عند الضغط في أي مكان خارجها
+// إغلاق اللوحة عند الضغط خارجها
 document.addEventListener('click', (e) => {
     if (cpPanel.classList.contains('show') && !cpPanel.contains(e.target) && e.target !== cpToggle) {
         cpPanel.classList.remove('show');
     }
 });
 
-// وظيفة تحديث المربعات الصغيرة (Previews) داخل اللوحة فوراً عند اختيار اللون
+// وظيفة تحديث المربعات الصغيرة (Previews)
 function updatePreviews() {
     document.getElementById('preview-gold').style.backgroundColor = document.getElementById('in-gold').value;
     document.getElementById('preview-bg').style.backgroundColor = document.getElementById('in-bg').value;
     document.getElementById('preview-card').style.backgroundColor = document.getElementById('in-card').value;
 }
 
-// إضافة مستمعي الأحداث لمدخلات الألوان لتحديث الـ Previews
 document.getElementById('in-gold').addEventListener('input', updatePreviews);
 document.getElementById('in-bg').addEventListener('input', updatePreviews);
 document.getElementById('in-card').addEventListener('input', updatePreviews);
 
-
-// وظيفة تطبيق الألوان وتغيير المتغيرات CSS وحفظها
+// وظيفة تطبيق الألوان (تم تصحيح المسميات هنا)
 btnApply.onclick = function() {
     const goldColor = document.getElementById('in-gold').value;
     const bgColor = document.getElementById('in-bg').value;
     const cardColor = document.getElementById('in-card').value;
 
-    // تحديث المتغيرات في الصفحة مباشرة (تغيير فوري)
+    // المسميات هنا يجب أن تطابق الـ CSS حرفياً
     document.documentElement.style.setProperty('--gold', goldColor);
-    document.documentElement.style.setProperty('--bg-color', bgColor);
-    document.documentElement.style.setProperty('--card-bg', cardColor);
+    document.documentElement.style.setProperty('--bg', bgColor);
+    document.documentElement.style.setProperty('--card', cardColor);
 
-    // حفظ الاختيارات في ذاكرة المتصفح
     localStorage.setItem('custom_gold', goldColor);
     localStorage.setItem('custom_bg', bgColor);
     localStorage.setItem('custom_card', cardColor);
 
-    // إغلاق اللوحة بعد التطبيق
     cpPanel.classList.remove('show');
 };
 
-// عند تحميل الصفحة: استرجاع الألوان المحفوظة مسبقاً إن وجدت
+/* 5. استرجاع الألوان المحفوظة عند تحميل الصفحة */
 window.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('custom_gold')) {
         const g = localStorage.getItem('custom_gold');
         const b = localStorage.getItem('custom_bg');
         const c = localStorage.getItem('custom_card');
         
-        // تحديث قيم المدخلات في اللوحة
         document.getElementById('in-gold').value = g;
         document.getElementById('in-bg').value = b;
         document.getElementById('in-card').value = c;
         
-        // تحديث الـ Previews
         updatePreviews();
         
-        // تطبيق الألوان على الصفحة
         document.documentElement.style.setProperty('--gold', g);
-        document.documentElement.style.setProperty('--bg-color', b);
-        document.documentElement.style.setProperty('--card-bg', c);
+        document.documentElement.style.setProperty('--bg', b);
+        document.documentElement.style.setProperty('--card', c);
     }
 });
-    
 </script>
 
 </body>
