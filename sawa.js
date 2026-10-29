@@ -255,7 +255,7 @@ color:#fff !important;
         width: 54%;
     }
 
-    div#tlogins div#l1 button.btn.btn-primary, div#l2 button.btn.btn-primary, div#l3 button.btn.btn-primary { font-family: 'jazeera',FontAwesome; padding: 0px 5px 2px; margin-top: 0px; color: var(--bg-color); }
+    div#tlogins div#l1 button.btn.btn-primary, div#l2 button.btn.btn-primary, div#l3 button.btn.btn-primary { font-family: 'jazeera',FontAwesome; padding: 0px 5px 2px; margin-top: 0px; color: #fff; }
     div#tlogins div#l2 .checkbox { margin-top: -25px!important; position: fixed; margin-left: -46px!important; }
     div#tlogins div#l2 .checkbox label { font-family: 'jazeera',FontAwesome; }
     
