@@ -368,12 +368,10 @@ color:#fff !important;
     }
 
 }
-  .bg{
-  background-color:#3a4d61 !important ;
-  }
+
 
   .bg{
-   background: var(--primary-color);
+   background: var(--primary-color)!important;
   }  
 #upro .modal-header.label-primary, #d0, .broadcasters, #rooms .label-primary, #users .nosel.ninr.fl.uzr.label.bg{
  background: var(--primary-color)!important ;
