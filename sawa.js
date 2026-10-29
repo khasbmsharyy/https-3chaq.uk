@@ -65,7 +65,9 @@ a.label.label-primary.fl span {
     align-self: center;
     text-align: center;
 }
-
+.btn.minix.btn-primary.fa.fa-reply.fr{
+background-color: var(--bg-color) !important;
+}
 /* ===================================
     BUTTONS
 =================================== */
