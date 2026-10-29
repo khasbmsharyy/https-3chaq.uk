@@ -18,7 +18,53 @@ $(`<style>
 width: 230px!important;
 border-radius: 15px!important;
 }
+.lonline.light.break{
+    margin-top: 29px;      /* من الأعلى */
+    
+}
+/* حاوية اسم الشات */
+a.label.label-primary.fl {
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    padding: 8px !important;
+    box-sizing: border-box;
+    white-space: normal !important;
+    overflow: hidden;
+}
 
+/* صورة الشات */
+a.label.label-primary.fl img {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin: 0 !important;
+}
+
+/* النص العربي */
+a.label.label-primary.fl div {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: block !important;
+    direction: rtl;
+    text-align: right;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.6;
+}
+
+/* زر التحديث */
+a.label.label-primary.fl span {
+    flex: 0 0 39px;
+    width: 39px !important;
+    margin: 0 !important;
+    align-self: center;
+    text-align: center;
+}
 
 /* ===================================
     BUTTONS
