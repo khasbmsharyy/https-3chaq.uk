@@ -14,7 +14,10 @@ $(`<style>
     BROADCAST HEADER
 =================================== */
 
-
+#tbox {
+width: 230px!important;
+border-radius: 15px!important;
+}
 
 
 /* ===================================
