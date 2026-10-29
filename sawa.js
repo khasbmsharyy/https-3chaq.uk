@@ -1,8 +1,8 @@
 $(`<style>
     /* تعريف المتغيرات الجذرية للتحكم الموحد بالألوان */
     :root {
-        --bg-color: #ecdfbd;      /* لون الخلفية الافتراضي */
-        --primary-color: #c0a47c; /* لون العناصر الافتراضي */
+        --bg-color: #3a4d61;      /* لون الخلفية الافتراضي */
+        --primary-color: #2c3d4f; /* لون العناصر الافتراضي */
         --dark-color: #2d2d2d;    /* اللون الداكن الثابت */
     }
 
@@ -21,36 +21,13 @@ $(`<style>
     BUTTONS
 =================================== */
 
-.btn-primary,
-.label-primary{
 
-border-radius:15px 15px 0 0 !important;
-
-border:1px solid rgba(255,255,255,.15) !important;
-
-color:#fff !important;
-
-font-size:14px !important;
-
-}
 
 
 /* ===================================
    PRODUCT
 =================================== */
 
-.broadcasters > div > .prod{
-
-background-image:
-url("https://up6.cc/2026/06/17812343925081.png") !important;
-
-background-position:center !important;
-
-background-repeat:no-repeat !important;
-
-background-size:cover !important;
-
-}
 
 
 /* ===================================
@@ -168,7 +145,7 @@ div#l1 button {
         margin-top: -10px !important;
     }
 .label-primary, .btn-primary,.label-primary:hover{
-background: #c0a47c !important;
+background: #2c3d4f !important;
 }
 .btn-primary:hover{
 background: #333 !important;
@@ -255,7 +232,7 @@ color:#fff !important;
     div#tlogins #w99w3 { border-bottom: 27px solid var(--primary-color); border-left: 27px solid transparent; height: 0; width: 90px; float: right; margin-top: -32px; position: relative; }
     div#tlogins #w99w4 { padding: 3px 0; text-align: right; margin-right: 2px; font-family: 'jazeera',FontAwesome; }
     
-    div#tlogins .a { background-color: #FFFFFF; border-radius: 15px; font-family: 'jazeera',FontAwesome; padding: 2px 10px; margin: 7px 10px; color: #d0046f; }
+    div#tlogins .a { background-color: #FFFFFF; border-radius: 15px; font-family: 'jazeera',FontAwesome; padding: 2px 10px; margin: 7px 10px; color: #2c3d4f; }
     div#tlogins .a2 { background-color: var(--bg-color); border-radius: 15px 15px 15px 0px; font-family: 'jazeera',FontAwesome; padding: 1px 10px 7px 10px; margin: 7px 10px 7px 0px; color: #d0046f; }
     
     .a3 { z-index: 1001; background-color: #FFFFFF; border-radius: 0 0 15px 15px; font-family: 'jazeera',FontAwesome; padding: 2px; margin: 0; color: var(--dark-color); position: absolute; margin-top: -20px; font-size: 14px!important; text-align: center; width: 383px; bottom: 3px; }
@@ -301,47 +278,10 @@ color:#fff !important;
     #designer-rights { margin-top: 20px; font-size: 14px; text-align: center; color: #777; }
     #designer-rights a { color: #2575fc; text-decoration: none; font-weight: bold; }
     @keyframes fadeIn { from { opacity: 0; transform: translate(50%, -55%); } to { opacity: 1; transform: translate(50%, -50%); } }
-  /* 1. إخفاء النصوص تماماً والحفاظ على الأيقونات */
-#d0 button, #d0 label {
-    font-size: 0 !important; /* إخفاء النص */
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    color: #fff !important; /* لون الأيقونات */
-}
 
-/* 2. ضبط حجم الأيقونات لتكون واضحة بعد إخفاء النص */
-#d0 button::before, #d0 label::before {
-    font-size: 20px !important; /* حجم الأيقونة */
-}
 
-/* 3. تنسيق عام للأزرار */
-#d0 {
-    display: flex !important;
-    justify-content: space-between;
-     /* لون الخلفية */
-    
-}
 
-#d0 button, #d0 label {
-    flex: 1;
-    border: 1px solid  !important;
-    cursor: pointer;
-    padding: 9px 0 !important;
-    transition: all 0.3s ease;
-    
-}
 
-/* 4. إضافة تأثير عند التمرير (Hover) */
-#d0 button:hover, #d0 label:hover {
-    background: var(--primary-color) !important;
-    color: var(--bg-color) !important; /* لون التمييز عند التمرير */
-}
-
-/* 5. إخفاء أي عدادات رقمية داخل الأيقونات إذا كنت لا تريدها */
-#d0 .busers, #d0 .pmc, #d0 .bwall {
-    display: none !important;
-}
 #tlogins .fa.fa-eye {
     position: relative;
     margin: -30px 17px 2px 0px!important;
@@ -380,24 +320,19 @@ color:#fff !important;
 
 }
   .bg{
-  background-color:#ecdfbd !important ;
+  background-color:#3a4d61 !important ;
   }
 
   .bg{
    background: var(--primary-color);
   }  
 #upro .modal-header.label-primary, #d0, .broadcasters, #rooms .label-primary, #users .nosel.ninr.fl.uzr.label.bg{
- background: var(--primary-color) ;
+ background: var(--primary-color)!important ;
 }
  #muteall{
  border-radius: 50% 50% !important;
  }
   </style>`).appendTo("head");
-$("body").append("<style> #upro .light.fl.pro.break { background-color: #000 !important;  background-image: linear-gradient(225deg, #e5e8f7 0%, #fff 29%, #fafafc 67%, #e5e8f7 100%);}  </style>");
-$("body").append("<style>#sultan { color: #f00 !important; }#room .btn-primary,#d0 .label-primary,#settings .label-primary,#settings .btn-primary,.corner.border.label.label-primary,.modal-header.label-primary,.head.d-flex.nosel.bg.fl,.rsave.btn.btn-primary.fr,.fa.fa-send.sndpm.fl.btn.btn-primary,.fr.fa.fa-share-alt.sndfile.fl.btn.btn-primary,.fr.fa.fa-share-alt.sndfilebc.fl.btn.btn-primary,.bdel.corner.btn.minix.btn-primary.fa.fa-times,.fa.fa-send.sndbc.fl.btn.btn-primary,.btn.btn-primary.u-nickc.fr.fa.fa-save,.label.fl.label-primary,button.rsave.btn.btn-primary.fl,#users .nosel.ninr.fl.uzr.label.bg {border-radius: 0px 0px 10px 10px !important;border: 1px solid #000 !important;background-image: url(https://www.pixelcatsend.com/images/customs/custom_593.png) !important;background-size: cover;color: #fff;}#room #mic {background-image: url(https://www.pixelcatsend.com/images/customs/custom_593.png) !important;background-size: cover; border-radius: 0px 6px 6px 6px !important;}</style>");
-$(".nonot").remove();
-$("body").append("<style> .broadcasters {text-align: center;width: 56px;background-color: #ffffff;border: 2px solid #afbfc2 !important;border-radius: 30% 1% !important; margin: 1px !important;  background-position: center !important; background-repeat: no-repeat !important; background-size: cover; } #chats .fitimg.u-pic {height: 52px !important;     border: 1px solid;      border-radius: 100px;    box-shadow: 0 0 0px rgb(0, 0, 0), inset 0 0 4px rgb(0, 0, 0), 0 0 0 0px #707070;   margin-left: -10px;  }    #chats img.ustat {         width: 11px !important;   height: 11px !important;    border-radius: 50px;       border: 1px solid #000;   box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 4px rgb(0, 0, 0); margin-left: 1px;    margin-top: 1px;  } #chats .d-flex.fl {          background-image: url(https://www.pixelcatsend.com/images/customs/custom_593.png) !important;  background-size: cover; }   #chats .mini.u-msg.dots { color: #000 !important;  } #d2bc { background-color: #000 !important;  background-image: url(https://www.pixelcatsend.com/images/customs/custom_593.png) !important; background-size: 100%;  }#upro .modal-header.label-primary, #d0,.broadcasters, #rooms .label-primary,  #users .nosel.ninr.fl.uzr.label.bg { border-radius: 10px 10px 0px 0px !important; border: 1px solid #000;background: #ecdfbd !important;   background-image: url(https://www.pixelcatsend.com/images/customs/custom_593.png) !important; color: #fff; } #users img.co { border-radius: 0px 8px 0px 8px !important;  transform: rotate(20deg); margin-top: 2px !important; } #dpnl { background-image: url(https://www.pixelcatsend.com/images/customs/custom_593.png) !important;  background-size: 100% !important;  }</style>");
-$("<style>#audio-container { position: absolute;bottom: 0;width: 100%;background-color: rgba(0, 0, 0, 0.1); padding: 15px;box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); border-top-left-radius: 15px;  border-top-right-radius: 15px; display: flex;  flex-direction: column; align-items: center; justify-content: center; gap: 10px;}.play-btn {background-size: 200% 200%; color: #fff;     font-size: 16px;         font-weight: bold;      padding: 10px 20px;         border: none;  border-radius: 8px;   cursor: pointer;  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);    transition: transform 0.3s ease;     animation: glowing 3s infinite; }     .play-btn:hover { transform: scale(1.1); }    @keyframes glowing {    0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; }           100% { background-position: 0% 50%; } } </style>").prependTo('body');
 
     // 2. إدراج العناصر في الصفحة (المودال + لوحة الألوان + الإهداءات)
     var modal = `<div id="az-m" class="az-mdl"><div class="az-cnt"><span class="az-cls" onclick="$('#az-m').fadeOut()">×</span><div class="az-hdr">تصميم استايلات احترافية 🎨</div><div class="az-body"><b>هل تريد تمييز موقعك؟</b><br>نصمم لك استايلات حصرية وجذابة تليق بموقعك.</div><a href="https://t.me/+966*******" target="_blank" class="az-btn">تواصل معي تيليجرام 💬</a></div></div>`;
@@ -413,14 +348,14 @@ $("<style>#audio-container { position: absolute;bottom: 0;width: 100%;background
     $("div#tlogins .btn.btn-primary").click(function () { $(".a3").hide(); });
 
     $(
-        '<div id="color-picker-icon"><img src="https://up6.cc/2026/06/178124675626321.png" alt="Color Picker Icon"></div>' +
+        '<div id="color-picker-icon"><img src="https://rawcdn.githack.com/khasbmsharyy/https-3chaq.uk/1e0d465ac6f81145aa153b3c0cc4f3b6ed994f80/Picsart_26-04-09_03-31-14-674.png" alt="Color Picker Icon"></div>' +
         '<div id="color-picker-panel">' +
         '<h4>اختر لون الخلفية</h4><div class="custom-color">' +
         '<div style="background-color: #a41e54;" data-color="#a41e54"></div><div style="background-color: #982072;" data-color="#982072"></div><div style="background-color: #98278f;" data-color="#98278f"></div><div style="background-color: #62007a;" data-color="#62007a"></div><div style="background-color: #3c007a;" data-color="#3c007a"></div><div style="background-color: #0d1c4d;" data-color="#0d1c4d"></div><div style="background-color: #6f6f6f;" data-color="#6f6f6f"></div><div style="background-color: #212121;" data-color="#212121"></div></div>' +
         '<h4>اختر لون العناصر</h4><div class="custom-color">' +
         '<div style="background-color: #821d46;" data-color="#821d46"></div><div style="background-color: #7b215e;" data-color="#7b215e"></div><div style="background-color: #70276a;" data-color="#70276a"></div><div style="background-color: #4f0462;" data-color="#4f0462"></div><div style="background-color: #320561;" data-color="#320561"></div><div style="background-color: #081337;" data-color="#081337"></div><div style="background-color: #5c5c5c;" data-color="#5c5c5c"></div><div style="background-color: #111111;" data-color="#111111"></div></div>' +
-        '<input type="color" id="bg-color-picker" value="#ecdfbd">' +
-        '<input type="color" id="btn-primary-color-picker" value="#c0a47c">' +
+        '<input type="color" id="bg-color-picker" value="#3a4d61">' +
+        '<input type="color" id="btn-primary-color-picker" value="#2c3d4f">' +
         '<button id="apply-colors">تطبيق الألوان</button>' +
         '<div id="designer-rights"><span>+واتساب: <strong>قريبا</strong></span><br><span>حقوق التصميم لـ<a href="#">ز✯͜͡𓅓ــᬼـزوᬼ🇾🇪⑅⃝عــᬼ</a></span><br><span>خاص لـ <a href="https://3chaq.uk/" target="_blank">شات سوا فلسطين</a></span></div>' +
         '</div>'
@@ -488,7 +423,7 @@ setInterval(toggleColorPanel, 300);
             $('.label-primary, .btn-primary, .bg-primary').attr('style', function(i, s) { return (s || '') + 'background-color: ' + selectedColor + ' !important;';});
         }
     });
-$('<img style="height:50px;width: 100%;margin-right: 50px;background-color:#595A5C;"src="aaa1.jpg"border="0">').insertBefore('div#d2bc');    
+$('<img style="height:50px;width: 100%;margin-right: 50px;background-color:#595A5C;"src="https://rawcdn.githack.com/khasbmsharyy/https-3chaq.uk/1e0d465ac6f81145aa153b3c0cc4f3b6ed994f80/Picsart_26-10-29_22-28-53-822.jpg"border="0">').insertBefore('div#d2bc');    
     // 4. تعديل النصوص الترحيبية
     $('.fl.ustat').css('width', '3px');
     $('.fa.fa-user-plus').html(`❥تسجيل `);
